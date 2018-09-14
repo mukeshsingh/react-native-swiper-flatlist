@@ -27,8 +27,10 @@ export default class Pagination extends PureComponent {
       paginationIndex,
       scrollToIndex,
       paginationDefaultColor,
-      paginationActiveColor
+      paginationActiveColor,
+      paginationStyle
     } = this.props;
+
     return (
       <View style={styles.paginationContainer}>
         {data.map((_, index) => (
@@ -37,7 +39,8 @@ export default class Pagination extends PureComponent {
               styles.pagination,
               paginationIndex === index
                 ? { backgroundColor: paginationActiveColor }
-                : { backgroundColor: paginationDefaultColor }
+                : { backgroundColor: paginationDefaultColor },
+              paginationStyle ? paginationStyle : {}
             ]}
             key={index}
             onPress={() => scrollToIndex(index)}
